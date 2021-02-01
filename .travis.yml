@@ -1,4 +1,13 @@
 language: java
 jdk:
     - openjdk11
-script: ant -buildfile Calculator/build.xml
+
+addons: 
+  sonarcloud:
+      organization: "jackbonaventura"
+      token: "9ccbb04037aecbf93fece7f3c5f0dae81c85e3ad"
+
+
+script: 
+- ant -buildfile Calculator/build.xml
+- sonar-scanner
