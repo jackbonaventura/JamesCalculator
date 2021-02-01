@@ -11,7 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 
-
+/*
+ * Classe con il ruolo di View-Controller. Una volta istanziato un oggetto di questo tipo dalla view, questa potrà ottenere
+ * i bottoni necessari a effettuare le varie operazioni.
+ */
 
 
 public class ButtonControl {
@@ -83,7 +86,7 @@ public class ButtonControl {
     				return;
     			}
 	    		String tempS;
-	    		if(afterEq==true) {
+	    		if(afterEq) {
 	    			tempS = text;
 	    			afterEq=false;
 	    		}
@@ -107,6 +110,7 @@ public class ButtonControl {
 	    		tempInt2 = 0.0;
 	    		label.setText("0");
 	    		labelTemp.setText("");
+	    		tmpOp = "";
 	    	}
 	    });
 	    return butText3;
@@ -121,13 +125,13 @@ public class ButtonControl {
 	    		if(box(label.getText())) {
 	    			tmpOp = "";
 	    			afterEq=true;
-	    			labelTemp.setText(ERROR);
+	    			labelTemp.setText("");
 	    			label.setText(ERROR);
 	    			tempInt = 0.0;
 		    		tempInt2 = 0.0;
 	    			return;
 	    		}
-	    		if(labelTemp.getText().equals("")||labelTemp.getText().equals(ERROR)) {return;}
+	    		if(labelTemp.getText().equals("")) {return;}
 	    		double labTmpInt = Double.parseDouble(labelTemp.getText()); 
 	    		
 	    		if(tmpOp.equals(add)) {  result = sum(tempInt,labTmpInt); }
@@ -137,7 +141,7 @@ public class ButtonControl {
 	    		if(result==-1) {
 	    			tmpOp = "";
 	    			afterEq=true;
-	    			labelTemp.setText(ERROR);
+	    			labelTemp.setText("");
 	    			tempInt = 0.0;
 		    		tempInt2 = 0.0;
 	    		}

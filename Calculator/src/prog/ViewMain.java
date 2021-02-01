@@ -1,5 +1,9 @@
 package prog;
 
+/*
+ * Classe che fornisce il punto d' accesso all' applicazione oltre che la maggior parte delle informazioni 
+ * relative alla grafica.
+ */
 
 
 import javafx.application.Application;
