@@ -2,10 +2,22 @@ language: java
 jdk:
     - openjdk11
 
-addons: 
-  sonarcloud:
-      organization: "jackbonaventura"
-      token: "9ccbb04037aecbf93fece7f3c5f0dae81c85e3ad"
+services:
+  - xvfb
+
+before_install:
+  - sudo apt update
+  - sudo apt install openjfx
+
+install: true  
+
+addons:
+    apt:
+      packages:
+        ant 
+            sonarcloud:
+                  organization: "jackbonaventura"
+                  token: "9ccbb04037aecbf93fece7f3c5f0dae81c85e3ad"
 
 
 script: 
