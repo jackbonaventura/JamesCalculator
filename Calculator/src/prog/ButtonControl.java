@@ -20,7 +20,7 @@ public class ButtonControl {
 	double result;
 	String tmpOp;
 	double tempInt2;
-	static boolean afterEq = false;
+	boolean afterEq = false;
 	public static final String ERROR = "error";
 	
 	public Button createButtonOp(String text,Label label) {
