@@ -1,14 +1,19 @@
 package prog;
 
+import javax.swing.GroupLayout.Alignment;
+
 import javafx.application.Application;
+import javafx.geometry.NodeOrientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.TextAlignment;
 
 
 public class ViewMain extends Application{
@@ -35,9 +40,20 @@ public class ViewMain extends Application{
 		stage.setScene(scene);
 		
 		ButtonControl bc = new ButtonControl();
-	
+	    
 		
 		gridpane = new GridPane();
+		
+		HBox ap = new HBox();
+		
+		ap.setPrefHeight(55);
+		ap.setPrefWidth(250);
+		ap.setTranslateY(55);
+		ap.setTranslateX(75);
+		ap.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+		ap.setStyle("-fx-background-color:  #f8f8ff; -fx-border-color: #737373;");
+		ap.getChildren().add(Label1);
+		
 		gridpane.add(bc.createButtonInt("1", Label1),1,1);
 		gridpane.add(bc.createButtonInt("2", Label1),2,1);
 		gridpane.add(bc.createButtonInt("3", Label1),3,1);
@@ -54,20 +70,22 @@ public class ViewMain extends Application{
 		gridpane.add(bc.createButtonOp("+", Label1),4,4);
 		gridpane.add(bc.createButtonC("C", Label1),3,4);
 		gridpane.add(bc.createButtonRes("=", Label1),2,4);
+		gridpane.add(ap, 4, 0);
 		
 		gridpane.setScaleX(2.0);
 		gridpane.setScaleY(2.0);
 		gridpane.setTranslateX(145);
 		gridpane.setTranslateY(165);
-		Label1.relocate(240, 75);
 		Label1.setScaleX(2.2);
 		Label1.setScaleY(2.2);
-		Label1.setMaxWidth(85);
+		Label1.setTranslateX(80);
+        Label1.setTranslateY(25);
+		Label1.setPrefWidth(105);
+		Label1.setStyle("-fx-color: #1c5f4c;");
 		
-		scene.setFill(Color.ALICEBLUE);
 		
-		
-		root.getChildren().addAll(Label1,gridpane);
+		scene.setFill(Color.WHITESMOKE);
+		root.getChildren().addAll(ap,gridpane);
 		
 		
 		
