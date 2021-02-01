@@ -1,0 +1,142 @@
+package prog;
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import prog.ViewMain;
+import java.lang.Double;
+
+
+public class ButtonControl {
+	
+	static Button butText1;
+	static Button butText2;
+	static Button butText3;
+	static Button butText4;
+	static Label labelTemp;
+	
+	static double tempInt;
+	static double result;
+	static String tmpOp;
+	static double tempInt2;
+	static boolean afterEq = false;
+	
+	public static Button createButtonOp(String text,Label label) {
+		labelTemp = ViewMain.getLabelTemp();
+		butText1 = new Button(text);
+		butText1.setMinWidth(30);
+		butText1.setOnAction(new EventHandler<ActionEvent>() {
+	    	public void handle(ActionEvent event) {
+	    		if(label.getText()=="error") { return; }
+	    		if(labelTemp.getText()=="") {
+	    			tempInt = tempInt2;
+	    			label.setText(text);
+	    			tmpOp=text;
+	    		}
+	    		else {
+	    			tempInt = Double.valueOf(labelTemp.getText());
+	    			tempInt2 = tempInt;
+	    			label.setText(text);
+	    			tmpOp=text;
+	    			labelTemp.setText("");
+	    		}
+	    	}
+	    });
+	    return butText1;
+	}
+	
+	
+	public static Button createButtonInt(String text, Label label) {
+		labelTemp = ViewMain.getLabelTemp();
+	    butText2 = new Button(text);
+		
+	    butText2.setOnAction(new EventHandler<ActionEvent>() {
+	    	public void handle(ActionEvent event) {
+	    		String tempS;
+	    		if(afterEq==true) {
+	    			tempS = text;
+	    			afterEq=false;
+	    		}
+	    		else{
+	    			tempS = labelTemp.getText() + text;
+	    		}
+	    		label.setText(tempS);
+	    		labelTemp.setText(tempS);
+	    	}
+	    });
+	    return butText2;
+	}
+
+	public static Button createButtonC(String text, Label label) {
+	    butText3 = new Button(text);
+		butText3.setOnAction(new EventHandler<ActionEvent>() {
+	    	public void handle(ActionEvent event) {
+	    		tempInt = 0.0;
+	    		label.setText("0");
+	    		labelTemp.setText("");
+	    	}
+	    });
+	    return butText3;
+	}
+
+	public static Button createButtonRes(String text, Label label) {
+	    butText4 = new Button(text);
+		butText4.setOnAction(new EventHandler<ActionEvent>() {
+	    	public void handle(ActionEvent event) {
+	    		labelTemp = ViewMain.getLabelTemp();
+	    		double labTmpInt = Double.valueOf(labelTemp.getText()); 
+	    		if(tmpOp=="+") {  result = ButtonControl.sum(tempInt,labTmpInt); }
+	    		if(tmpOp=="-") {  result = ButtonControl.diff(tempInt,labTmpInt); }
+	    		if(tmpOp=="x") {  result = ButtonControl.mult(tempInt,labTmpInt); }
+	    		if(tmpOp=="/") {  result = ButtonControl.div(tempInt,labTmpInt,label); }
+	    		if(result==-1) {
+	    			tmpOp = "";
+	    			afterEq=true;
+	    			labelTemp.setText("error");
+	    		}
+	    		else
+	    		{
+	    		tmpOp = "";
+	    		String resultInStr = String.valueOf(result) ;
+	    		labelTemp.setText(resultInStr);
+	    		label.setText(resultInStr);
+	    		afterEq = true;
+	    		}
+	    	}
+	    });
+	    return butText4;
+	}
+
+	
+	public static double sum(double x, double y) {
+		double ris;
+		ris = x+y;
+		return ris;
+	}
+	
+	public static double diff(double x, double y) {
+		double ris;
+		ris = x-y;
+		return ris;
+		
+	}
+	
+	public static double mult(double x, double y) {
+		double ris;
+		ris = x*y;
+		return ris;
+	}
+	
+	public static double div(double x, double y, Label label ) {
+		double ris;
+		if(y==0) {
+			label.setText("error");
+			return -1 ;
+		}
+		else {
+		ris = x/y;
+		return ris;
+		}
+	}
+}
+	
