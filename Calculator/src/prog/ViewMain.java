@@ -1,6 +1,6 @@
 package prog;
 
-import javax.swing.GroupLayout.Alignment;
+
 
 import javafx.application.Application;
 import javafx.geometry.NodeOrientation;
@@ -8,12 +8,11 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.scene.layout.AnchorPane;
+
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.TextAlignment;
+
 
 
 public class ViewMain extends Application{

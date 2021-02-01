@@ -1,5 +1,9 @@
 package prog;
 import javafx.event.EventHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +20,10 @@ public class ButtonControl {
 	public Label labelTemp;
 	
 	
-	
+	private String add = "+";
+	private String per = "x";
+	private String min = "-";
+	private String frac = "/";
 	double tempInt;
 	double result;
 	String tmpOp;
@@ -63,6 +70,9 @@ public class ButtonControl {
 		
 	    butText2.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
+	    		if(label.getText().length()==9) {
+    				return;
+    			}
 	    		String tempS;
 	    		if(afterEq==true) {
 	    			tempS = text;
@@ -70,6 +80,7 @@ public class ButtonControl {
 	    		}
 	    		else{
 	    			tempS = labelTemp.getText() + text;
+	    			
 	    		}
 	    		label.setText(tempS);
 	    		labelTemp.setText(tempS);
@@ -83,6 +94,7 @@ public class ButtonControl {
 		butText3.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
 	    		tempInt = 0.0;
+	    		tempInt2 = 0.0;
 	    		label.setText("0");
 	    		labelTemp.setText("");
 	    	}
@@ -95,11 +107,20 @@ public class ButtonControl {
 		butText4.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
 	    		labelTemp = getLabelTemp();
+	    		if(box(label.getText())) {
+	    			tmpOp = "";
+	    			afterEq=true;
+	    			labelTemp.setText(ERROR);
+	    			label.setText(ERROR);
+	    			return;
+	    		}
+	    		
 	    		double labTmpInt = Double.valueOf(labelTemp.getText()); 
-	    		if(tmpOp.equals("+")) {  result = ButtonControl.sum(tempInt,labTmpInt); }
-	    		if(tmpOp.equals("-")) {  result = ButtonControl.diff(tempInt,labTmpInt); }
-	    		if(tmpOp.equals("x")) {  result = ButtonControl.mult(tempInt,labTmpInt); }
-	    		if(tmpOp.contentEquals("/")) {  result = ButtonControl.div(tempInt,labTmpInt,label); }
+	    		
+	    		if(tmpOp.equals(add)) {  result = sum(tempInt,labTmpInt); }
+	    		if(tmpOp.equals(min)) {  result = diff(tempInt,labTmpInt); }
+	    		if(tmpOp.equals(per)) {  result = mult(tempInt,labTmpInt); }
+	    		if(tmpOp.equals(frac)) {  result = div(tempInt,labTmpInt,label); }
 	    		if(result==-1) {
 	    			tmpOp = "";
 	    			afterEq=true;
@@ -113,32 +134,33 @@ public class ButtonControl {
 	    		label.setText(resultInStr);
 	    		afterEq = true;
 	    		}
+	    		
 	    	}
 	    });
 	    return butText4;
 	}
 
 	
-	public static double sum(double x, double y) {
+	private double sum(double x, double y) {
 		double ris;
 		ris = x+y;
 		return ris;
 	}
 	
-	public static double diff(double x, double y) {
+	private double diff(double x, double y) {
 		double ris;
 		ris = x-y;
 		return ris;
 		
 	}
 	
-	public static double mult(double x, double y) {
+	private double mult(double x, double y) {
 		double ris;
 		ris = x*y;
 		return ris;
 	}
 	
-	public static double div(double x, double y, Label label ) {
+	private double div(double x, double y, Label label ) {
 		double ris;
 		if(y==0) {
 			label.setText(ERROR);
@@ -148,6 +170,22 @@ public class ButtonControl {
 		ris = x/y;
 		return ris;
 		}
+	}
+	
+	private boolean box(String op) {
+		int i;
+		List<String> operators = new ArrayList<>();
+		operators.add(add);
+		operators.add(min);
+		operators.add(per);
+		operators.add(frac);
+		
+		for(i=0;i<4;i++) {
+			if(op.equals(operators.get(i))){
+				return true;
+			}
+		}
+		return false;
 	}
 }
 	
