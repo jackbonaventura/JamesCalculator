@@ -3,8 +3,8 @@ import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import prog.ViewMain;
-import java.lang.Double;
+
+
 
 
 public class ButtonControl {
@@ -20,6 +20,7 @@ public class ButtonControl {
 	static String tmpOp;
 	static double tempInt2;
 	static boolean afterEq = false;
+	public static final String ERROR = "error";
 	
 	public static Button createButtonOp(String text,Label label) {
 		labelTemp = ViewMain.getLabelTemp();
@@ -27,7 +28,7 @@ public class ButtonControl {
 		butText1.setMinWidth(30);
 		butText1.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
-	    		if(label.getText()=="error") { return; }
+	    		if(label.getText()==ERROR) { return; }
 	    		if(labelTemp.getText()=="") {
 	    			tempInt = tempInt2;
 	    			label.setText(text);
@@ -92,7 +93,7 @@ public class ButtonControl {
 	    		if(result==-1) {
 	    			tmpOp = "";
 	    			afterEq=true;
-	    			labelTemp.setText("error");
+	    			labelTemp.setText(ERROR);
 	    		}
 	    		else
 	    		{
@@ -130,7 +131,7 @@ public class ButtonControl {
 	public static double div(double x, double y, Label label ) {
 		double ris;
 		if(y==0) {
-			label.setText("error");
+			label.setText(ERROR);
 			return -1 ;
 		}
 		else {

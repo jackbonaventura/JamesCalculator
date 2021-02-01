@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 
 import javafx.scene.paint.Color;
-import prog.ButtonControl;
+
 
 public class ViewMain extends Application{
 
