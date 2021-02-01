@@ -13,8 +13,9 @@ public class ButtonControl {
 	static Button butText2;
 	static Button butText3;
 	static Button butText4;
-	Label labelTemp = new Label();
-	ViewMain v = new ViewMain();
+	public Label labelTemp;
+	public Label LabelTemp; 
+	
 	
 	double tempInt;
 	double result;
@@ -23,8 +24,16 @@ public class ButtonControl {
 	boolean afterEq = false;
 	public static final String ERROR = "error";
 	
+	public ButtonControl() {
+		LabelTemp = new Label("");
+	}
+	
+	private  Label getLabelTemp() {
+		return LabelTemp;
+	}
+	
 	public Button createButtonOp(String text,Label label) {
-		labelTemp = v.getLabelTemp();
+		labelTemp = getLabelTemp();
 		butText1 = new Button(text);
 		butText1.setMinWidth(30);
 		butText1.setOnAction(new EventHandler<ActionEvent>() {
@@ -49,7 +58,7 @@ public class ButtonControl {
 	
 	
 	public Button createButtonInt(String text, Label label) {
-		labelTemp = v.getLabelTemp();
+		labelTemp = getLabelTemp();
 	    butText2 = new Button(text);
 		
 	    butText2.setOnAction(new EventHandler<ActionEvent>() {
@@ -85,7 +94,7 @@ public class ButtonControl {
 	    butText4 = new Button(text);
 		butText4.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
-	    		labelTemp = v.getLabelTemp();
+	    		labelTemp = getLabelTemp();
 	    		double labTmpInt = Double.valueOf(labelTemp.getText()); 
 	    		if(tmpOp.equals("+")) {  result = ButtonControl.sum(tempInt,labTmpInt); }
 	    		if(tmpOp.equals("-")) {  result = ButtonControl.diff(tempInt,labTmpInt); }
