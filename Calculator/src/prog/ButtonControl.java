@@ -33,6 +33,9 @@ public class ButtonControl {
 	
 	public ButtonControl() {
 		labelTemp = new Label("");
+		tempInt=0.0;
+		tempInt2=0.0;
+		tmpOp="";
 	}
 	
 	private  Label getLabelTemp() {
@@ -112,9 +115,11 @@ public class ButtonControl {
 	    			afterEq=true;
 	    			labelTemp.setText(ERROR);
 	    			label.setText(ERROR);
+	    			tempInt = 0.0;
+		    		tempInt2 = 0.0;
 	    			return;
 	    		}
-	    		
+	    		if(labelTemp.getText().equals("")||labelTemp.getText().equals(ERROR)) {return;}
 	    		double labTmpInt = Double.valueOf(labelTemp.getText()); 
 	    		
 	    		if(tmpOp.equals(add)) {  result = sum(tempInt,labTmpInt); }
@@ -125,6 +130,8 @@ public class ButtonControl {
 	    			tmpOp = "";
 	    			afterEq=true;
 	    			labelTemp.setText(ERROR);
+	    			tempInt = 0.0;
+		    		tempInt2 = 0.0;
 	    		}
 	    		else
 	    		{
@@ -133,6 +140,8 @@ public class ButtonControl {
 	    		labelTemp.setText(resultInStr);
 	    		label.setText(resultInStr);
 	    		afterEq = true;
+	    		tempInt = 0.0;
+	    		tempInt2 = 0.0;
 	    		}
 	    		
 	    	}
