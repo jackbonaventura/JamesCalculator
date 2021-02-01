@@ -13,11 +13,11 @@ import javafx.scene.control.Label;
 
 public class ButtonControl {
 	
-	static Button butText1;
-	static Button butText2;
-	static Button butText3;
-	static Button butText4;
-	public Label labelTemp;
+	Button butText1;
+	Button butText2;
+	Button butText3;
+	Button butText4;
+	private Label labelTemp;
 	
 	
 	private String add = "+";
@@ -55,7 +55,7 @@ public class ButtonControl {
 	    			tmpOp=text;
 	    		}
 	    		else {
-	    			tempInt = Double.valueOf(labelTemp.getText());
+	    			tempInt = Double.parseDouble(labelTemp.getText());
 	    			tempInt2 = tempInt;
 	    			label.setText(text);
 	    			tmpOp=text;
