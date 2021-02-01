@@ -85,10 +85,10 @@ public class ButtonControl {
 	    	public void handle(ActionEvent event) {
 	    		labelTemp = ViewMain.getLabelTemp();
 	    		double labTmpInt = Double.valueOf(labelTemp.getText()); 
-	    		if(tmpOp=="+") {  result = ButtonControl.sum(tempInt,labTmpInt); }
-	    		if(tmpOp=="-") {  result = ButtonControl.diff(tempInt,labTmpInt); }
-	    		if(tmpOp=="x") {  result = ButtonControl.mult(tempInt,labTmpInt); }
-	    		if(tmpOp=="/") {  result = ButtonControl.div(tempInt,labTmpInt,label); }
+	    		if(tmpOp.equals("+")) {  result = ButtonControl.sum(tempInt,labTmpInt); }
+	    		if(tmpOp.equals("-")) {  result = ButtonControl.diff(tempInt,labTmpInt); }
+	    		if(tmpOp.equals("x")) {  result = ButtonControl.mult(tempInt,labTmpInt); }
+	    		if(tmpOp.contentEquals("/")) {  result = ButtonControl.div(tempInt,labTmpInt,label); }
 	    		if(result==-1) {
 	    			tmpOp = "";
 	    			afterEq=true;
