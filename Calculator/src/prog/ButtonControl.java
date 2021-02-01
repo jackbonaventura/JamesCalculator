@@ -14,7 +14,7 @@ public class ButtonControl {
 	static Button butText3;
 	static Button butText4;
 	public Label labelTemp;
-	public Label LabelTemp; 
+	
 	
 	
 	double tempInt;
@@ -25,11 +25,11 @@ public class ButtonControl {
 	public static final String ERROR = "error";
 	
 	public ButtonControl() {
-		LabelTemp = new Label("");
+		labelTemp = new Label("");
 	}
 	
 	private  Label getLabelTemp() {
-		return LabelTemp;
+		return labelTemp;
 	}
 	
 	public Button createButtonOp(String text,Label label) {
