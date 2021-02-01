@@ -13,8 +13,8 @@ import javafx.scene.paint.Color;
 
 public class ViewMain extends Application{
 
-	static Label Label1;
-	static Label LabelTemp;
+    Label Label1;
+	Label LabelTemp;
 	GridPane gridpane;
 	Group root;
 	
@@ -33,25 +33,27 @@ public class ViewMain extends Application{
 	    root = new Group();
 		Scene scene = new Scene(root,400,450);
 		stage.setScene(scene);
+		
+		ButtonControl bc = new ButtonControl();
 	
 		
 		gridpane = new GridPane();
-		gridpane.add(ButtonControl.createButtonInt("1", Label1),1,1);
-		gridpane.add(ButtonControl.createButtonInt("2", Label1),2,1);
-		gridpane.add(ButtonControl.createButtonInt("3", Label1),3,1);
-		gridpane.add(ButtonControl.createButtonOp("/", Label1),4,1);
-		gridpane.add(ButtonControl.createButtonInt("4", Label1),1,2);
-		gridpane.add(ButtonControl.createButtonInt("5", Label1),2,2);
-		gridpane.add(ButtonControl.createButtonInt("6", Label1),3,2);
-		gridpane.add(ButtonControl.createButtonOp("x", Label1),4,2);
-		gridpane.add(ButtonControl.createButtonInt("7", Label1),1,3);
-		gridpane.add(ButtonControl.createButtonInt("8", Label1),2,3);
-		gridpane.add(ButtonControl.createButtonInt("9", Label1),3,3);
-		gridpane.add(ButtonControl.createButtonOp("-", Label1),4,3);
-		gridpane.add(ButtonControl.createButtonInt("0", Label1),1,4);
-		gridpane.add(ButtonControl.createButtonOp("+", Label1),4,4);
-		gridpane.add(ButtonControl.createButtonC("C", Label1),3,4);
-		gridpane.add(ButtonControl.createButtonRes("=", Label1),2,4);
+		gridpane.add(bc.createButtonInt("1", Label1),1,1);
+		gridpane.add(bc.createButtonInt("2", Label1),2,1);
+		gridpane.add(bc.createButtonInt("3", Label1),3,1);
+		gridpane.add(bc.createButtonOp("/", Label1),4,1);
+		gridpane.add(bc.createButtonInt("4", Label1),1,2);
+		gridpane.add(bc.createButtonInt("5", Label1),2,2);
+		gridpane.add(bc.createButtonInt("6", Label1),3,2);
+		gridpane.add(bc.createButtonOp("x", Label1),4,2);
+		gridpane.add(bc.createButtonInt("7", Label1),1,3);
+		gridpane.add(bc.createButtonInt("8", Label1),2,3);
+		gridpane.add(bc.createButtonInt("9", Label1),3,3);
+		gridpane.add(bc.createButtonOp("-", Label1),4,3);
+		gridpane.add(bc.createButtonInt("0", Label1),1,4);
+		gridpane.add(bc.createButtonOp("+", Label1),4,4);
+		gridpane.add(bc.createButtonC("C", Label1),3,4);
+		gridpane.add(bc.createButtonRes("=", Label1),2,4);
 		
 		gridpane.setScaleX(2.0);
 		gridpane.setScaleY(2.0);
@@ -72,7 +74,7 @@ public class ViewMain extends Application{
 		stage.show();
 	}
 	
-	public static Label getLabelTemp() {
+	public  Label getLabelTemp() {
 		return LabelTemp;
 	}
 }

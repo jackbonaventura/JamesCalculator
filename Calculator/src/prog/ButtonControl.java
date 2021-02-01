@@ -13,17 +13,18 @@ public class ButtonControl {
 	static Button butText2;
 	static Button butText3;
 	static Button butText4;
-	static Label labelTemp;
+	Label labelTemp = new Label();
+	ViewMain v = new ViewMain();
 	
-	static double tempInt;
-	static double result;
-	static String tmpOp;
-	static double tempInt2;
+	double tempInt;
+	double result;
+	String tmpOp;
+	double tempInt2;
 	static boolean afterEq = false;
 	public static final String ERROR = "error";
 	
-	public static Button createButtonOp(String text,Label label) {
-		labelTemp = ViewMain.getLabelTemp();
+	public Button createButtonOp(String text,Label label) {
+		labelTemp = v.getLabelTemp();
 		butText1 = new Button(text);
 		butText1.setMinWidth(30);
 		butText1.setOnAction(new EventHandler<ActionEvent>() {
@@ -47,8 +48,8 @@ public class ButtonControl {
 	}
 	
 	
-	public static Button createButtonInt(String text, Label label) {
-		labelTemp = ViewMain.getLabelTemp();
+	public Button createButtonInt(String text, Label label) {
+		labelTemp = v.getLabelTemp();
 	    butText2 = new Button(text);
 		
 	    butText2.setOnAction(new EventHandler<ActionEvent>() {
@@ -68,7 +69,7 @@ public class ButtonControl {
 	    return butText2;
 	}
 
-	public static Button createButtonC(String text, Label label) {
+	public Button createButtonC(String text, Label label) {
 	    butText3 = new Button(text);
 		butText3.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
@@ -80,11 +81,11 @@ public class ButtonControl {
 	    return butText3;
 	}
 
-	public static Button createButtonRes(String text, Label label) {
+	public  Button createButtonRes(String text, Label label) {
 	    butText4 = new Button(text);
 		butText4.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
-	    		labelTemp = ViewMain.getLabelTemp();
+	    		labelTemp = v.getLabelTemp();
 	    		double labTmpInt = Double.valueOf(labelTemp.getText()); 
 	    		if(tmpOp.equals("+")) {  result = ButtonControl.sum(tempInt,labTmpInt); }
 	    		if(tmpOp.equals("-")) {  result = ButtonControl.diff(tempInt,labTmpInt); }
