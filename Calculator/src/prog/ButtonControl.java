@@ -128,7 +128,7 @@ public class ButtonControl {
 	    			return;
 	    		}
 	    		if(labelTemp.getText().equals("")||labelTemp.getText().equals(ERROR)) {return;}
-	    		double labTmpInt = Double.valueOf(labelTemp.getText()); 
+	    		double labTmpInt = Double.parseDouble(labelTemp.getText()); 
 	    		
 	    		if(tmpOp.equals(add)) {  result = sum(tempInt,labTmpInt); }
 	    		if(tmpOp.equals(min)) {  result = diff(tempInt,labTmpInt); }
