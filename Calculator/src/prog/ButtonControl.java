@@ -3,10 +3,13 @@ import javafx.event.EventHandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
 
 
 
@@ -19,6 +22,7 @@ public class ButtonControl {
 	Button butText4;
 	private Label labelTemp;
 	
+	private static final Logger LOGGER = Logger.getLogger(ButtonControl.class.getName());
 	
 	private String add = "+";
 	private String per = "x";
@@ -48,6 +52,7 @@ public class ButtonControl {
 		butText1.setMinWidth(30);
 		butText1.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
+	    		LOGGER.log(Level.FINE, event.toString());
 	    		if(label.getText()==ERROR) { return; }
 	    		if(labelTemp.getText()=="") {
 	    			tempInt = tempInt2;
@@ -73,6 +78,7 @@ public class ButtonControl {
 		
 	    butText2.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
+	    		LOGGER.log(Level.FINE, event.toString());
 	    		if(label.getText().length()==9) {
     				return;
     			}
@@ -96,6 +102,7 @@ public class ButtonControl {
 	    butText3 = new Button(text);
 		butText3.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
+	    		LOGGER.log(Level.FINE, event.toString());
 	    		tempInt = 0.0;
 	    		tempInt2 = 0.0;
 	    		label.setText("0");
@@ -109,6 +116,7 @@ public class ButtonControl {
 	    butText4 = new Button(text);
 		butText4.setOnAction(new EventHandler<ActionEvent>() {
 	    	public void handle(ActionEvent event) {
+	    		LOGGER.log(Level.FINE, event.toString());
 	    		labelTemp = getLabelTemp();
 	    		if(box(label.getText())) {
 	    			tmpOp = "";
