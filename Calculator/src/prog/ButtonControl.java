@@ -148,7 +148,7 @@ public class ButtonControl {
 	    		{
 	    		tmpOp = "";
 	    		String resultInStr = String.valueOf(result) ;
-	    		labelTemp.setText("");
+	    		labelTemp.setText(resultInStr);
 	    		label.setText(resultInStr);
 	    		afterEq = true;
 	    		tempInt = 0.0;
