@@ -110,7 +110,6 @@ public class ButtonControl {
 	    		tempInt2 = 0.0;
 	    		label.setText("0");
 	    		labelTemp.setText("");
-	    		tmpOp = "";
 	    	}
 	    });
 	    return butText3;
@@ -149,7 +148,7 @@ public class ButtonControl {
 	    		{
 	    		tmpOp = "";
 	    		String resultInStr = String.valueOf(result) ;
-	    		labelTemp.setText(resultInStr);
+	    		labelTemp.setText("");
 	    		label.setText(resultInStr);
 	    		afterEq = true;
 	    		tempInt = 0.0;
