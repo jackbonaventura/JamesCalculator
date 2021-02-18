@@ -5,7 +5,7 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="Calculator">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../"/>
+    <property name="ECLIPSE_HOME" value="../../../eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
@@ -50,7 +50,7 @@
         <antcall target="build"/>
     </target>
     <target name="ViewMain">
-        <java classname="prog.ViewMain" failonerror="true" fork="yes">
+        <java classname="logic.ViewMain" failonerror="true" fork="yes">
             <classpath refid="Calculator.classpath"/>
         </java>
     </target>
