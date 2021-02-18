@@ -22,7 +22,6 @@ import javafx.scene.paint.Color;
 public class ViewMain extends Application{
 
     Label label1;
-	
 	GridPane gridpane;
 	Group root;
 	
@@ -35,7 +34,7 @@ public class ViewMain extends Application{
 	
 	
 	public void start(Stage stage) {
-		stage.setTitle("James Calculator");
+		stage.setTitle("Calculator");
 		label1 = new Label("0");
 		
 	    root = new Group();
